@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DalSegno</title>
+  <title>dal Segno</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class='pure-g-r'>
+    <div class='pure-u-1-5'>
+      <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading topLeftIcon">
+          <%= image_tag "Music-segno.png" %>
+        </a>
+        <ul>
+          <li><a href="/messages">Messages</a></li>
+          <li><a href="#">thing 2</a></li>
+          <li><a href="#">thing 3</a></li>
+        </ul>
+      </div>
+    </div>
 
-<%= yield %>
-
+    <div class='pure-u-4-5'>
+      <div class='placeholder'></div>
+      <div class='container'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <footer>created at General Assembly in Los Angeles</footer>
 </body>
 </html>

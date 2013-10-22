@@ -1,0 +1,38 @@
+<div class='messagesContainer pure-g-r'>
+  <div class='pure-u-1-5'>
+    <div class='pure-menu pure-menu-open topics'>
+      <a class="pure-button" href="messages/new">New Message</a>
+      <ul>
+        <li><a href='#'>topic1</a></li>
+        <li><a href='#'>topic2</a></li>
+        <li><a href='#'>topic3</a></li>
+        <li><a href='#'>topic4</a></li>
+        <li><a href='#'>topic5</a></li>
+        <li><a href='#'>topic6</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class='pure-u-4-5'>
+      <div class='messageCards pure-g-r'>
+        <% @message.each do |message| %>
+        <div class="message card pure-u-1">
+          <b><%= message.subject %></b><br />
+          <%= message.message_body %>
+
+          <%= form_for( [message, message.replies.new]) do |m| %>
+
+          <%= m.label "Reply", :reply_text %>
+          <%= m.text_area :reply_text %>
+          <%= m.submit %>
+          <% end %>
+           
+        </div>
+        
+        <div class='reply card pure-u-2-3 <%=message.id%> '>
+          <p>REPLIES WILL GO HERE.</p>
+        </div>
+        <% end %>
+      </div>
+  </div>
+</div>
