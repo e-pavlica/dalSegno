@@ -5,9 +5,14 @@
   border: 1px solid #b7b7b7;
   padding: 10px;
   background: white;
+  margin: 0 auto 5px;
 }
 .message {
   margin-left: 10px;
+}
+
+.topLeftIcon {
+  background: white;
 }
 
 .topLeftIcon img{

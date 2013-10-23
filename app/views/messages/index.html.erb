@@ -16,22 +16,31 @@
   <div class='pure-u-4-5'>
       <div class='messageCards pure-g-r'>
         <% @message.each do |message| %>
+        <!-- add each active message to a contact card -->
         <div class="message card pure-u-1">
           <b><%= message.subject %></b><br />
           <%= message.message_body %>
+          <br />
+          <button class="pure-button" ng-click="replyForm<%= message.id %> = true">Reply</button>
+        <!-- create a form for replies -->
+          <%= form_for( [message, Reply.new], html:{class:"pure-form ng-hide"}) do |m| %>
 
-          <%= form_for( [message, message.replies.new]) do |m| %>
-
-          <%= m.label "Reply", :reply_text %>
           <%= m.text_area :reply_text %>
-          <%= m.submit %>
+          <%= submit_tag "Post", class:"pure-button" %>
           <% end %>
            
         </div>
-        
-        <div class='reply card pure-u-2-3 <%=message.id%> '>
-          <p>REPLIES WILL GO HERE.</p>
-        </div>
+          <!-- Iterate through replies & display -->
+          <% if message.replies.length > 0 %>
+            <% message.replies.each do |reply| %>
+            <div class='reply card pure-u-2-3 mess<%=message.id %>'>
+              <%= reply.reply_text%>
+            </div>
+            <!-- end of replies each method -->
+            <% end %>
+          <!-- end of if statement -->
+          <% end %>
+        <!-- end of message .each method -->
         <% end %>
       </div>
   </div>
