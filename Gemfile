@@ -3,10 +3,18 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+# Use mongoid for the db
 gem "mongoid", github: "mongoid/mongoid"
+
+#add HAML (becuse erb sucks a little)
+gem "haml"
+
+#add authentication/hash library
+gem "bcrypt-ruby", github:'codahale/bcrypt-ruby'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+gem 'bootstrap-sass', '~> 2.3.2.1' #add the latest bootstrap
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
