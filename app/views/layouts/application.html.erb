@@ -16,6 +16,19 @@
           <%= image_tag "Music-segno.png" %>
         </a>
         <ul>
+          <li class="pure-menu-heading">
+            
+            <% if current_user %>
+              Logged in as<br />
+               <%= current_user.email %>
+               <% else %>
+               Not Logged In.
+               <%end%>
+               <br />
+            <!-- <button class="pure-button">Logout</button> -->
+            <%# button_to ("Logout", controller:"authentications", action:"destroy")%>
+            <%= link_to  "Logout", logout_path %>
+          </li>
           <li><a href="/messages">Messages</a></li>
           <li><a href="#">thing 2</a></li>
           <li><a href="#">thing 3</a></li>

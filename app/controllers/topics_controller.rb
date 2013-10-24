@@ -10,6 +10,11 @@ class TopicsController < ApplicationController
   end
 
   def show
-    redirect_to messages_path(topic= params[:id])
+    redirect_to messages_path(topic: params[:id])
+  end
+
+  def index
+    @topics = Topic.all
+    @message = Message.all
   end
 end

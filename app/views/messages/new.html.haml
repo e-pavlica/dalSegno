@@ -4,5 +4,5 @@
       = message.text_field :subject, placeholder:"Subject"
       = message.text_area :message_body, placeholder:"Message" 
 
-      = message.select(:topics, Topic.all.collect{|t| [t.topic_name, t.id]}) 
+      = message.select(:mtopics, Topic.all.collect{|t| [t.topic_name, t.id]}) 
       = submit_tag "Post", class:"pure-button"

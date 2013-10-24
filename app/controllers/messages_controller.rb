@@ -1,9 +1,15 @@
 class MessagesController < ApplicationController
   #basic CRUD functionality
   def index
-    @message = Message.all
     @topics = Topic.all
-    @parms = params[:id]
+    @selected_topic = params[:topic]
+
+    #@message = Message.all
+    if !@selected_topic
+      @message = Message.all
+    else
+      @message = Topic.find(@selected_topic).tmessages
+    end
   end
 
   def new
@@ -17,6 +23,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(params[:message].permit(:subject, :message_body))
+    Topic.find(params[:message].permit(:mtopic)).tmessages << @message
     redirect_to :action=> "index"
   end
 

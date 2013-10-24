@@ -3,7 +3,7 @@ require 'bcrypt'
 class User
   include Mongoid::Document
 
-  attr_accessor :password, :password_confirmation
+  attr_accessor :password#, :password_confirmation
 
   field :email, type: String
   field :salt, type: String
@@ -12,7 +12,7 @@ class User
   before_save :hash_password
   validates :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
-  validates :password, confirmation: true
+  # validates :password, confirmation: true
 
   def authenticate(password)
     if self.hashed_password == BCrypt::Engine.hash_secret(password, self.salt)
@@ -28,7 +28,7 @@ class User
       self.salt = BCrypt::Engine.generate_salt
       self.hashed_password =
        BCrypt::Engine.hash_secret(password, self.salt)
-      password = password_confirmation = nil
+      password = nil #= password_confirmation 
     end
   end
 end
