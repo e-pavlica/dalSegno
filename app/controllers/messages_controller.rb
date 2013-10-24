@@ -2,10 +2,13 @@ class MessagesController < ApplicationController
   #basic CRUD functionality
   def index
     @message = Message.all
+    @topics = Topic.all
+    @parms = params[:id]
   end
 
   def new
     @message = Message.new
+    @topics = Topic.all
   end
 
   def show

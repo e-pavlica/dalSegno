@@ -1,0 +1,28 @@
+.pure-g-r.messagesContainer
+  .pure-u-1-5
+    .pure-menu.pure-menu-open.topics
+      %a{href:"messages/new", class:"pure-button"} New Message
+      %ul
+        %li
+          = link_to "all", messages_path
+        - @topics.each do |t|
+          %li
+            = link_to t.topic_name, topic_path(t.id)
+  .pure-u-4-5
+    .pure-g-r.messageCards
+      - @message.each do |m|
+          - unless m.
+        .message.card.pure-u-1
+          = m.subject 
+          %br
+          = m.message_body
+          %br
+          %button{:class => "pure-button", "ng-click" => "replyForm#{m.id}= true"}Reply
+          %div{"ng-show" => "replyForm#{m.id}"}
+            %br
+            = form_for( [m, Reply.new], html:{class:"pure-form"}) do |m|1
+              = m.text_area :reply_text
+              = submit_tag "Post", class:"pure-button"
+        -m.replies.each do |r|
+          .reply.card.pure-u-2-3
+            =r.reply_text

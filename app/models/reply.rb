@@ -1,6 +1,6 @@
 class Reply
   include Mongoid::Document
-  belongs_to :message
+  embedded_in :message
 
   field :reply_text, type: String
 

@@ -1,0 +1,47 @@
+<div class='messagesContainer pure-g-r'>
+  <div class='pure-u-1-5'>
+    <div class='pure-menu pure-menu-open topics'>
+      <a class="pure-button" href="messages/new">New Message</a>
+      <ul>
+        <li><a href='#'>topic1</a></li>
+        <li><a href='#'>topic2</a></li>
+        <li><a href='#'>topic3</a></li>
+        <li><a href='#'>topic4</a></li>
+        <li><a href='#'>topic5</a></li>
+        <li><a href='#'>topic6</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class='pure-u-4-5'>
+      <div class='messageCards pure-g-r'>
+        <% @message.each do |message| %>
+        <!-- add each active message to a contact card -->
+        <div class="message card pure-u-1">
+          <b><%= message.subject %></b><br />
+          <%= message.message_body %>
+          <br />
+          <button class="pure-button" ng-click="replyForm<%= message.id %> = true">Reply</button>
+        <!-- create a form for replies -->
+          <%= form_for( [message, Reply.new], html:{class:"pure-form ng-hidex"}) do |m| %>
+
+          <%= m.text_area :reply_text %>
+          <%= submit_tag "Post", class:"pure-button" %>
+          <% end %>
+           
+        </div>
+          <!-- Iterate through replies & display -->
+          <% if message.replies.length > 0 %>
+            <% message.replies.each do |reply| %>
+            <div class='reply card pure-u-2-3 mess<%=message.id %>'>
+              <%= reply.reply_text%>
+            </div>
+            <!-- end of replies each method -->
+            <% end %>
+          <!-- end of if statement -->
+          <% end %>
+        <!-- end of message .each method -->
+        <% end %>
+      </div>
+  </div>
+</div>

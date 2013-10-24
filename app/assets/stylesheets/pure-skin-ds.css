@@ -281,6 +281,7 @@ Forms Core
     .pure-form label {
         margin-bottom: 0.3em;
         display: block;
+        color: black;
     }
     
     .pure-group input[type="text"],
@@ -445,7 +446,7 @@ Forms Core
 }
 .pure-form label {
     margin: 0.5em 0 0.2em;
-    color: #fafafa;
+    color: #000;
     font-size:90%;
 }
 .pure-form fieldset {

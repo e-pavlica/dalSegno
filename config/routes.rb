@@ -14,4 +14,13 @@ DalSegno::Application.routes.draw do
     resources :replies
   end
   
+  resources :topics
+
+  resources :users
+
+  get "authentications/new" => "authentications#new"
+  post "authentications" => "authentications#create"
+
+
+
 end

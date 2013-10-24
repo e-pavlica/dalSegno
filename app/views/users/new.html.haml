@@ -1,0 +1,13 @@
+.pure-g-r
+  .pure-u-3-5.card
+    %p Welcome to dal Segno. Please provide the info below to sign up.
+    =form_for User.new, html:{class:"pure-form pure-form-stacked"} do |u|
+      %p
+      =u.label "email", :email
+      =u.text_field :email, placeholder:"me@mydomian.com"
+      %p
+      =u.label "password", :password
+      =u.text_field :password, placeholder:"password"
+      =submit_tag "Create User", class:"pure-button"
+    %p User Id:
+    = session[:user_id]
