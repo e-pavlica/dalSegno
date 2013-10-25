@@ -21,3 +21,11 @@ footer {
   color: #ccc;
   bottom: 0;
 }
+
+.welcome{
+  text-align: center;
+}
+
+.welcome.pure-button {
+  width: 30%;
+}

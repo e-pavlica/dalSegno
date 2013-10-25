@@ -11,8 +11,8 @@ class User
   field :address, type: String
   field :city, type: String
   field :state, type: String
-  field :zip, type: Integer
-  field :phone, type: Integer
+  field :zip, type: String
+  field :phone, type: String
   field :salt, type: String
   field :hashed_password, type: String
 

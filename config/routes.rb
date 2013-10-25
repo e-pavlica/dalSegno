@@ -10,6 +10,9 @@ DalSegno::Application.routes.draw do
   # post "messages" => "messages#create"
   # delete "/:id" => "messages#destroy"
 
+  get "/" => "pages#index"
+
+
   resources :messages do
     resources :replies
   end
