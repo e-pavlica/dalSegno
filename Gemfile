@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-#add unicorn HTTP server
-#gem 'unicorn'
+ruby "2.0.0"
 
 #add elusive icons set
 gem 'elusive-icons-sass-rails'
@@ -56,3 +55,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :production do
+  gem 'rails_12factor'
+  gem 'passenger'
+end

@@ -23,8 +23,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create(params[:message].permit(:subject, :message_body))
-    # Topic.find(params[:message].permit(:mtopic)).tmessages << @message
-    redirect_to :action=> "index"
+    
+    redirect_to messages_path
   end
 
   def destroy
