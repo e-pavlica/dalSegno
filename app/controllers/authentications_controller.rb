@@ -1,6 +1,8 @@
 class AuthenticationsController < ApplicationController
   #only call into
   before_action :authenticate_user, only: [:destroy]
+  skip_before_filter :require_login
+
 
   def new
     #are they already logged in?
