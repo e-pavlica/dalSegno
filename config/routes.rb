@@ -20,6 +20,7 @@ DalSegno::Application.routes.draw do
 
   # resources :authentications
   get "authentications/new" => "authentications#new"
+  get "authentications/newuser" => "authentications#newuser"
   post "authentications" => "authentications#create"
   # delete "authentications" => "authentications#destroy"
   get "/logout", to: "authentications#destroy", as: "logout"

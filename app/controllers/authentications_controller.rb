@@ -8,8 +8,15 @@ class AuthenticationsController < ApplicationController
       redirect_to users_url
     else
       @user = User.new
+      @wrong_pass = params[:wrong_pass]
+      @wrong_email = params[:wrong_email]
       render :new
     end
+  end
+
+  def newuser
+    session[:newuser] = true
+    redirect_to new_user_path
   end
 
   def create
@@ -21,8 +28,11 @@ class AuthenticationsController < ApplicationController
         redirect_to messages_url
       else
         flash.now.alert = "Unable to sign you in."
-        render :new
+        redirect_to authentications_new_path, notice: "Invalid Password"
       end
+    else 
+      flash.now.alert = "Unable to sign you in."
+      redirect_to authentications_new_path, notice: "Invaild Email"
     end
   end
 

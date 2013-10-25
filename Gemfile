@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 #add unicorn HTTP server
 #gem 'unicorn'
 
+#add elusive icons set
+gem 'elusive-icons-sass-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

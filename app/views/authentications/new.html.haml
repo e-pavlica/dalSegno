@@ -1,11 +1,12 @@
 .pure-g-r
   .pure-u-3-5.card
     %h3 Please log in.
-    =form_for @user, {url:"/authentications", method:"post", html:{class:"pure-form pure-form-stacked"}} do |u|
-
-      =u.label "email", :email
-      =u.text_field :email, placeholder: "me@mydomain.com"
-
-      =u.label "password", :password
-      =u.text_field :password, placeholder: "password"
+    =form_for @user, {url:"/authentications", method:"post", html:{class:"pure-form"}} do |u|
+      %formset{class:"pure-group"}
+        =u.text_field :email, placeholder: "me@mydomain.com"
+        =u.text_field :password, {placeholder: "password", type: "password"}
       =submit_tag "login", class:"pure-button"
+    = notice
+    %br
+    %p Not a member yet? 
+    =link_to "sign up", {controller:"authentications", action:"newuser"}, class:"pure-button"

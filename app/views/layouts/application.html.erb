@@ -2,6 +2,7 @@
 <html ng-app>
 <head>
   <title>dal Segno</title>
+  <!--[if lte IE 7]><script src="assets/elusive-font/lte-ie7.js"></script><![endif]-->
   <%= favicon_link_tag "favicon.ico" %>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -27,9 +28,9 @@
                <br />
             <!-- <button class="pure-button">Logout</button> -->
             <%# button_to ("Logout", controller:"authentications", action:"destroy")%>
-            <%= link_to  "Logout", logout_path %>
+            <%= link_to  "Logout", logout_path , class:"pure-button"%>
           </li>
-          <li><a href="/messages">Messages</a></li>
+          <li><%= link_to '<i class="icon-envelope"></i> Messages'.html_safe, messages_path %></li>
           <li><a href="#">thing 2</a></li>
           <li><a href="#">thing 3</a></li>
         </ul>

@@ -54,6 +54,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    elusive-icons-sass-rails (1.0.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     erubis (2.7.0)
     execjs (2.0.2)
     haml (4.0.3)
@@ -136,6 +139,7 @@ DEPENDENCIES
   bcrypt-ruby!
   bootstrap-sass (~> 2.3.2.1)
   coffee-rails (~> 4.0.0)
+  elusive-icons-sass-rails
   haml
   jbuilder (~> 1.2)
   jquery-rails

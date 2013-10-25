@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+@import 'elusive-webfont';
+@import 'elusive-webfont-ie7';
+
 footer {
   text-align: center;
   font-size: 8px;

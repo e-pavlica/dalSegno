@@ -14,7 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    redirect_to authentications_new_path unless current_user
+    if session[:newuser]
+    else
+      redirect_to authentications_new_path unless current_user
+    end
   end
 
 end

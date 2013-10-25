@@ -6,6 +6,13 @@ class User
   attr_accessor :password#, :password_confirmation
 
   field :email, type: String
+  field :name, type: String
+  field :birthday, type: Date
+  field :address, type: String
+  field :city, type: String
+  field :state, type: String
+  field :zip, type: Integer
+  field :phone, type: Integer
   field :salt, type: String
   field :hashed_password, type: String
 
