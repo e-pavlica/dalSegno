@@ -5,8 +5,10 @@ ruby "2.0.0"
 #add gravator support for profiles
 gem 'gravtastic'
 
-#add elusive icons set
-gem 'elusive-icons-sass-rails'
+group :assets do
+  #add elusive icons set
+  gem 'elusive-icons-sass-rails'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

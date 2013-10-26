@@ -22,6 +22,8 @@ class User
   before_save :hash_password
   # before_save :check_existing_email
   validates :email.downcase, uniqueness: true, presence: true, format: {:with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/}
+
+  
   def authenticate(password)
     if self.hashed_password == BCrypt::Engine.hash_secret(password, self.salt)
       true

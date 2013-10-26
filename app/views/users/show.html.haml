@@ -1,13 +1,15 @@
 .pure-g-r
   .pure-u-1.card
-    %h3=@user.name
+    %h2=@user.name
     %br
     .pure-g-r
       .pure-u-1
         %h4 Contact Info
       .pure-u-1-2
+        email: 
         =@user.email
         %br
+        phone: 
         =@user.phone
       .pure-u-1-2
         = image_tag @user.gravatar_url
