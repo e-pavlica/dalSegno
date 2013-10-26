@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
+#add gravator support for profiles
+gem 'gravtastic'
+
 #add elusive icons set
 gem 'elusive-icons-sass-rails'
 

@@ -2,6 +2,9 @@ require 'bcrypt'
 
 class User
   include Mongoid::Document
+  include Gravtastic
+  gravtastic
+
 
   attr_accessor :password#, :password_confirmation
 
@@ -17,10 +20,8 @@ class User
   field :hashed_password, type: String
 
   before_save :hash_password
-  validates :email, presence: true
-  validates :email, uniqueness: { case_sensitive: false }
-  # validates :password, confirmation: true
-
+  # before_save :check_existing_email
+  validates :email.downcase, uniqueness: true, presence: true, format: {:with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/}
   def authenticate(password)
     if self.hashed_password == BCrypt::Engine.hash_secret(password, self.salt)
       true
@@ -28,6 +29,12 @@ class User
       false
     end
   end
+
+  # def check_existing_email
+  #   if User.find_by(:email)
+  #     render :new, notice: "That email is already associated with an account."
+  #   end
+  # end
 
   private
   def hash_password

@@ -9,10 +9,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    if User.create(params[:user].permit(:email, :password, :name, :birthday,:address,:city,:state,:zip,:phone))
+    if User.create(params[:user].permit(:email.downcase, :password, :name, :birthday,:address,:city,:state,:zip,:phone)).valid?
       redirect_to authentications_new_path, notice: "Account Created. Please log in above."
     else
-      render :new, notice: "Signup failed. Please try again."
+      redirect_to new_user_path, notice: "Signup failed. Please try again."
     end
   end
   

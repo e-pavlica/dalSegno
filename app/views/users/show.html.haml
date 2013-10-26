@@ -2,9 +2,12 @@
   .pure-u-1.card
     %h3=@user.name
     %br
-    .pure-u-1-2
-      %h4 Contact Info
-      %br
-      =@user.email
-      %br
-      =@user.phone
+    .pure-g-r
+      .pure-u-1
+        %h4 Contact Info
+      .pure-u-1-2
+        =@user.email
+        %br
+        =@user.phone
+      .pure-u-1-2
+        = image_tag @user.gravatar_url
