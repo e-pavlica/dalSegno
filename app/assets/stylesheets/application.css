@@ -50,3 +50,7 @@ footer {
 .address {
   display: inline-block;
 }
+
+#map-canvas{
+  height: 200px;
+}
