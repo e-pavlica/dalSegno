@@ -40,3 +40,13 @@ footer {
 .welcome.pure-button {
   width: 30%;
 }
+
+.profileImg {
+  border-radius: 100%;
+  float:right;
+  width: 25%;
+}
+
+.address {
+  display: inline-block;
+}

@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
+  def index
+    @users = User.all
+  end
+
   def show
   end
 
@@ -10,10 +14,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    if User.create().valid?
+    a = User.create(user_params)
+    if a.valid?
       redirect_to authentications_new_path, notice: "Account Created. Please log in above."
     else
-      redirect_to new_user_path, notice: "Signup failed. Please try again."
+      redirect_to new_user_path, notice: a.errors.full_messages.to_sentence
     end
   end
 
@@ -32,7 +37,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email.downcase, :password, :name, :birthday,:address,:city,:state,:zip,:phone)
+    params.require(:user).permit(:email, :password, :name, :birthday,:address,:city,:state,:zip,:phone)
   end
 
   def set_user

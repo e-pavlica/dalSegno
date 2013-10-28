@@ -1,16 +1,23 @@
 .pure-g-r
   .pure-u-1.card
+    = image_tag @user.gravatar_url, class: "profileImg"
     %h2=@user.name
-    %br
     .pure-g-r
       .pure-u-1
         %h4 Contact Info
       .pure-u-1-2
-        email: 
+        %i{class:"icon-email"}
         =@user.email
         %br
-        phone: 
+        %i{class:"icon-ios7-telephone"}
         =@user.phone
+        %br
+        =link_to "edit", edit_user_path , class: "pure-button editButton"
       .pure-u-1-2
-        = image_tag @user.gravatar_url
-        =link_to "edit", edit_user_path , class: "pure-button"
+        %i{class:"icon-location"}
+        .address
+          =@user.address
+          %br
+          =@user.city + ", " + @user.state + " " + @user.zip
+
+        

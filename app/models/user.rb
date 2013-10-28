@@ -3,7 +3,7 @@ require 'bcrypt'
 class User
   include Mongoid::Document
   include Gravtastic
-  gravtastic
+  gravtastic :default => "identicon", :size => 256
 
   has_many :messages
 
@@ -22,7 +22,8 @@ class User
 
   before_save :hash_password
   # before_save :check_existing_email
-  validates :email.downcase, uniqueness: true, presence: true, format: {:with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/}
+  # validates :email, presence: true
+  validates :email, uniqueness: true, presence: true, format: {:with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/}
 
   
   def authenticate(password)
