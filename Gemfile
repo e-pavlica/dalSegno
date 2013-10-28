@@ -5,11 +5,6 @@ ruby "2.0.0"
 #add gravator support for profiles
 gem 'gravtastic'
 
-group :assets do
-  #add elusive icons set
-  gem 'elusive-icons-sass-rails'
-end
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -23,7 +18,7 @@ gem "haml"
 gem "bcrypt-ruby", github:'codahale/bcrypt-ruby'
 
 # Use SCSS for stylesheets
-#gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.0'
 #gem 'bootstrap-sass', '~> 2.3.2.1' #add the latest bootstrap
 
 # Use Uglifier as compressor for JavaScript assets

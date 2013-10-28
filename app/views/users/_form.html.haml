@@ -1,0 +1,12 @@
+=form_for User.new, html:{class:"pure-form"} do |u|
+  %fieldset{class:"pure-group"}
+    =u.text_field :email, {class: "pure-input-1-2", placeholder:"me@mydomian.com" }
+    =u.text_field :password, {class: "pure-input-1-2", placeholder:"password", type: "password", required:true}
+  %fieldset{class:"pure-group"}
+    =u.text_field :name, {class:"pure-input-1-2", placeholder:"Your Name"}
+    =u.text_field :address, {class:"pure-input-1-2", placeholder:"123 Main St."}
+    =u.text_field :city, {class:"pure-input-1-2", placeholder:"City"}
+    =u.text_field :state, {class:"pure-input-1-2", placeholder:"State"}
+    =u.text_field :zip, {class:"pure-input-1-2", placeholder:"Zip Code"}
+    =u.text_field :phone, {class:"pure-input-1-2", placeholder:"Phone"}
+  =u.submit "Submit", {class: "pure-button"}
