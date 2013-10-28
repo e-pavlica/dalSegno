@@ -12,29 +12,32 @@
   margin-left: 10px;
 }
 
-.topLeftIcon {
-  background: white;
-}
-
-.topLeftIcon img{
-  width: 50%;
-  margin: 0 25%;
+.message h4 {
+  margin-top: 0;
 }
 
 .reply {
   margin:5px 0 5px 33%;
 }
-.placeholder {
-  padding-bottom: 12%;
-}
 
-body {
-  background: #eee;
-}
 
 p {
   font-size: 0.8em;
 }
 .test {
   background: #FF00F9;
+}
+
+.creator {
+  float: right;
+  height: 35px;
+  width: 200px;
+  text-align: right;
+  vertical-align: top;
+  font-size: 0.6em;
+}
+
+.creator img {
+  height: 35px;
+  border-radius: 100%;
 }

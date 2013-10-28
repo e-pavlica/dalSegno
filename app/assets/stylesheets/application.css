@@ -47,10 +47,27 @@ footer {
   width: 25%;
 }
 
-.address {
-  display: inline-block;
+#address {
+  display: inline;
 }
 
 #map-canvas{
   height: 200px;
+}
+
+.placeholder {
+  padding-bottom: 12%;
+}
+
+body {
+  background: #eee;
+}
+
+.topLeftIcon {
+  background: white;
+}
+
+.topLeftIcon img{
+  width: 50%;
+  margin: 0 25%;
 }

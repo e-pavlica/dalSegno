@@ -11,13 +11,15 @@
   .pure-u-4-5
     .pure-g-r.messageCards
       - @message.each do |m|
+        - u = User.find(m.user)
         .message.card.pure-u-1
-          %h4
-            = m.subject 
-          %p
-            = User.find(m.user).name
+          .creator
+            posted by
+            = u.name 
+            = link_to (image_tag u.gravatar_url), user_path(u.id)
+          %h4= m.subject 
           %br
-          = m.message_body
+          =m.message_body.html_safe
           %br
           %button{:class => "pure-button", "ng-click" => "replyForm#{m.id}= true"}Reply
           %div{"ng-show" => "replyForm#{m.id}"}
