@@ -1,8 +1,8 @@
 .pure-u-1
   .card
-    =form_for @message, html: {class:"pure-form pure-form-stacked"} do |message|
+    =form_for [@message], html: {class:"pure-form pure-form-stacked"} do |message|
       = message.text_field :subject, placeholder:"Subject"
       = message.text_area :message_body, placeholder:"Message" 
 
-      = message.select(:mtopics, Topic.all.collect{|t| [t.topic_name, t.id]}) 
+      = message.select(:topic, Topic.all.collect{|t| [t.topic_name, t.id]}) 
       = submit_tag "Post", class:"pure-button"

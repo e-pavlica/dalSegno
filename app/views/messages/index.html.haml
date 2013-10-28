@@ -12,7 +12,10 @@
     .pure-g-r.messageCards
       - @message.each do |m|
         .message.card.pure-u-1
-          = m.subject 
+          %h4
+            = m.subject 
+          %p
+            = User.find(m.user).name
           %br
           = m.message_body
           %br

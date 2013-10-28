@@ -13,3 +13,7 @@ Message.create([{subject: "alice in wonderland", message_body:"I wish I hadn't m
 Topic.destroy_all
 
 Topic.create([{topic_name:"Announcements"},{topic_name:"Production"},{topic_name:"Social"}])
+
+User.destroy_all
+
+User.create([{email:"user@email.com", name:"Woody", address:"Andy's Room", city:"Emeryville", state: "CA", phone:"800-snake-in-my-boot",  salt: "$2a$10$QCviZ7Z/HfMJnN9UoZ1i0O", hashed_password: "$2a$10$QCviZ7Z/HfMJnN9UoZ1i0OrQl5F78/pBM8u1Hc9feTZ0NGyDHYzTW"}])

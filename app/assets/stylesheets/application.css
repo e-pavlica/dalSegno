@@ -12,8 +12,19 @@
  *= require_tree .
  */
 
-/*@import 'elusive-webfont';
-@import 'elusive-webfont-ie7';*/
+/*Import CodyStar + Open Sans from Google Fonts*/
+@import url(http://fonts.googleapis.com/css?family=Codystar|Open+Sans);
+
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    /* Set you're content font stack here: */
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Codystar', cursive;
+}
 
 footer {
   text-align: center;

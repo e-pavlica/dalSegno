@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     if !@selected_topic
       @message = Message.all
     else
-      @message = Topic.find(@selected_topic).tmessages
+      @message = Topic.find(@selected_topic).messages
     end
   end
 
@@ -22,8 +22,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(params[:message].permit(:subject, :message_body))
-    
+    @message = Message.new(params[:message].permit(:subject, :message_body, :topic))
+    @message.user = current_user
+    @message.save
     redirect_to messages_path
   end
 

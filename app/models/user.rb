@@ -5,6 +5,7 @@ class User
   include Gravtastic
   gravtastic
 
+  has_many :messages
 
   attr_accessor :password#, :password_confirmation
 
