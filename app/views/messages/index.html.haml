@@ -28,5 +28,10 @@
               = m.text_area :reply_text
               = submit_tag "Post", class:"pure-button"
         -m.replies.each do |r|
+          - u = User.find(r.user)
           .reply.card.pure-u-2-3
+            .creator
+              posted by
+              = u.name 
+              = link_to (image_tag u.gravatar_url), user_path(u.id)
             =r.reply_text

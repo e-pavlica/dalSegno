@@ -6,7 +6,9 @@ class RepliesController < ApplicationController
 
   def create
     @message = Message.find(params[:message_id])
-    @reply = @message.replies.create(params[:reply].permit(:reply_text))
+    @reply = @message.replies.new(params[:reply].permit(:reply_text))
+    @reply.user = current_user
+    @reply.save
 
     redirect_to messages_path
   end

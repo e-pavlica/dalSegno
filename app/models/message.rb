@@ -1,6 +1,6 @@
 class Message
   include Mongoid::Document
-  embeds_many :replies
+  has_many :replies
   belongs_to :topic
 
   # has_many :message_topics

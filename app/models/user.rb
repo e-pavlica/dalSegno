@@ -6,6 +6,7 @@ class User
   gravtastic :default => "identicon", :size => 256
 
   has_many :messages
+  has_many :replies
 
   attr_accessor :password#, :password_confirmation
 
