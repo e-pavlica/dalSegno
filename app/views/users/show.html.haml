@@ -47,13 +47,13 @@
         %i{class:"icon-ios7-telephone"}
         =@user.phone
         %br
-        =link_to "edit", edit_user_path , class: "pure-button editButton"
         =notice
       .pure-u-1-2
         %i{class:"icon-location"}
         #address
           =@user.address + ", " + @user.city + ", " + @user.state + " " + @user.zip
         #map-canvas
+    =link_to "edit", edit_user_path , class: "pure-button pure-button-small editButton"
 
 
         

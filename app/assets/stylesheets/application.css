@@ -46,7 +46,7 @@ footer {
   border-radius: 100%;
   /*float:right;*/
   position: absolute;
-  width: 25%;
+  width: 20%;
   z-index: 4;
   right: 2%;
   top: -20%;
@@ -88,4 +88,8 @@ body {
 
 .gravInfo {
   text-align: right;
+}
+
+.pure-button.pure-button-small {
+    font-size: 75%;
 }
