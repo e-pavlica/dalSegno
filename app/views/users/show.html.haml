@@ -1,34 +1,38 @@
-:javascript
-  var geocoder;
-  var map;
-  function initialize() {
-    geocoder = new google.maps.Geocoder();
-    //var latlng = new google.maps.LatLng(-34.397, 150.644);
-    var latlon;
-    var address = document.getElementById('address').innerHTML;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        latlon = results[0].geometry.location;
-        map.setCenter(latlon);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-       latlon = new google.maps.LatLng(-117.1389938, 36.4902533);
-       map.setCenter(latlon);
+-content_for :head do
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-r1YQPElxrGtWhUsfpi8lI18NUkMss1w&sensor=false"></script>
+
+  :javascript
+    var geocoder;
+    var map;
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      //var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var latlon;
+      var address = document.getElementById('address').innerHTML;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          latlon = results[0].geometry.location;
+          map.setCenter(latlon);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+        } else {
+         latlon = new google.maps.LatLng(-117.1389938, 36.4902533);
+         map.setCenter(latlon);
+        }
+      });
+      var mapOptions = {
+        zoom: 12,
+        center: latlon,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-    });
-    var mapOptions = {
-      zoom: 12,
-      center: latlon,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     }
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  }
 
 
-  google.maps.event.addDomListener(window, 'page:change', initialize);
+    google.maps.event.addDomListener(window, 'page:change', initialize);
 
 
 

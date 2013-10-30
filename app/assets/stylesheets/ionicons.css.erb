@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'ionicons';
-	src:font-url('/assets/ionicons.eot');
-	src:font-url('/assets/ionicons.eot?#iefix') format('embedded-opentype'),
-		font-url('/assets/ionicons.woff') format('woff'),
-		font-url('/assets/ionicons.ttf') format('truetype'),
-		font-url('/assets/ionicons.svg#ionicons') format('svg');
+	src:url('<%= asset_path "ionicons.eot" %>');
+	src:url('<%= asset_path "ionicons.eot" %>?#iefix') format('embedded-opentype'),
+		url('<%= asset_path "ionicons.woff" %>') format('woff'),
+		url('<%= asset_path "ionicons.ttf" %>') format('truetype'),
+		url('<%= asset_path "ionicons.svg" %>#ionicons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
