@@ -1,8 +1,34 @@
+
+
 .pure-u-1
   .card
     =form_for [@message], html: {class:"pure-form pure-form-stacked"} do |message|
       = message.text_field :subject, placeholder:"Subject"
-      = message.text_area :message_body, placeholder:"Message" 
+      #wysihtml5-toolbar
+        %a{:data => {"wysihtml5-command" => "bold"}, class: "pure-button"} <i class="fontello-bold"></i>
+        %a{:data => {"wysihtml5-command" => "italic"}, class: "pure-button"} <i class="fontello-italic"></i>
+        %a{:data => {"wysihtml5-command" => "insertUnorderedList"}, class: "pure-button"} <i class="fontello-list"></i>
+        %a{:data => {"wysihtml5-command" => "foreColor", "wysihtml5-command-value"=>"red"}, class: "pure-button"} Red
+        %a{:data => {"wysihtml5-command" => "foreColor", "wysihtml5-command-value"=>"green"}, class: "pure-button"} Green
+        %a{:data => {"wysihtml5-command" => "foreColor", "wysihtml5-command-value"=>"blue"}, class: "pure-button"} Blue
+      = message.text_area :message_body, {placeholder:"Message", id:"wysihtml5-textarea"} 
 
       = message.select(:topic, Topic.all.collect{|t| [t.topic_name, t.id]}) 
       = submit_tag "Post", class:"pure-button"
+
+:javascript
+  var wysihtml5ParserRules = {
+    classes: {
+      "wysiwyg-color-blue": 1,
+      "wysiwyg-color-green": 1,
+      "wysiwyg-color-red": 1
+    },
+    tags: {
+      "span": 1
+    }
+  };
+  var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+  toolbar: "wysihtml5-toolbar", // id of toolbar element
+  parserRules: wysihtml5ParserRules, // defined in parser rules set 
+  stylesheets: ["wysihtml5-stylesheet.css"]
+  });

@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
   end
   def update
-    @user.update_attributes(item_params)
+    @user.update_attributes(user_params)
     redirect_to @user, notice: "Your profile was successfully updated."
   end
 

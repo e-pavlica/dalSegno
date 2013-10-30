@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
   <title>dal Segno</title>
   <!--[if lte IE 7]><script src="assets/elusive-font/lte-ie7.js"></script><![endif]-->
@@ -16,35 +16,12 @@
   <div class='pure-g-r'>
     <%if signed_in? %>
     <div class='pure-u-1-5'>
-      <div class="pure-menu pure-menu-open">
-        <a href="/" class="pure-menu-heading topLeftIcon">
-          <%= image_tag "Music-segno.png" %>
-        </a>
-        
-        <ul>
-          <li class="pure-menu-heading">
-            
-            <% if current_user %>
-              Logged in as<br />
-               <%= current_user.email %>
-               <%= link_to "Profile", user_path(current_user) %>
-               <% else %>
-               Not Logged In.
-               <%end%>
-               <br />
-            <%= link_to  "Logout", logout_path , class:"pure-button"%>
-          </li>
-          <li><%= link_to '<i class="icon-email"></i> Messages'.html_safe, messages_path %></li>
-          <li><%= link_to '<i class="icon-ios7-people"></i> Users'.html_safe, users_path %></li>
-          <li><a href="#">thing 3</a></li>
-        </ul>
-      </div>
+      <%= render "app_menu" %>
     </div>
     <% else %>
     <div class='pure-u-1-5'></div>
     <%end%>
 
-      
     <div class='pure-u-4-5'>
       <div class='placeholder'></div>
       <div class='container'>

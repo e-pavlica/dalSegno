@@ -15,7 +15,8 @@
             position: results[0].geometry.location
         });
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+       latlon = new google.maps.LatLng(-117.1389938, 36.4902533);
+       map.setCenter(latlon);
       }
     });
     var mapOptions = {
@@ -27,7 +28,7 @@
   }
 
 
-  google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(window, 'page:change', initialize);
 
 
 
@@ -40,7 +41,7 @@
       .pure-u-1
         %h4 Contact Info
       .pure-u-1-2
-        %i{class:"icon-email"}
+        %i{class:"icon-at"}
         =@user.email
         %br
         %i{class:"icon-ios7-telephone"}

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
+gem 'jquery-turbolinks'
+
 #add gravator support for profiles
 gem 'gravtastic'
 
@@ -19,7 +21,7 @@ gem "bcrypt-ruby", github:'codahale/bcrypt-ruby'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-#gem 'bootstrap-sass', '~> 2.3.2.1' #add the latest bootstrap
+gem 'bootstrap-sass', '~> 2.3.2.1' #add the latest bootstrap
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

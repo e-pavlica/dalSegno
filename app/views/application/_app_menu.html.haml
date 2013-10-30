@@ -1,0 +1,15 @@
+.pure-menu.pure-menu-open
+  =link_to (image_tag "Music-segno.png"), "/", class:"pure-menu-heading topLeftIcon"
+  %ul
+    %li{class:"pure-menu-heading"}
+      logged in as 
+      %br
+      =current_user.name
+    %li
+      =link_to '<i class="icon-email"></i> Messages'.html_safe, messages_path
+    %li
+      =link_to '<i class="icon-ios7-people"></i> Users'.html_safe, users_path
+    %li
+      =link_to '<i class="icon-person"></i> Profile'.html_safe, user_path(current_user)
+    %li
+      =link_to '<i class="icon-close-circled"></i> Logout'.html_safe, logout_path
