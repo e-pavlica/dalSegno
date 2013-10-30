@@ -76,11 +76,24 @@ test:
         max_retries: 1
         retry_interval: 0
 
+# production:
+#   sessions:
+#     default:
+#       uri: <%= ENV['MONGOHQ_URL'] %>
+#       options:
+#         skip_version_check: true
+#         #safe: true
+#   options:
+#     raise_not_found_error: false
+
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
+      database: dal_segno_prod
+      hosts:
+        - localhost:27017
       options:
+        read: primary
         skip_version_check: true
         #safe: true
   options:
