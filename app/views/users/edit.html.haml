@@ -1,5 +1,9 @@
 .pure-g-r
   .pure-u-3-5.card
+    = image_tag @user.gravatar_url, class: "profileImg"
     %h3 Edit your profle below.
-    =render "form"
+    .pure-g-r
+      =render "form"
+      .pure-u-1-5.gravInfo
+        %p want to change your profile picture? sign up for an account at <a href="http://gravatar.com">gravatar.com</a>
     =notice

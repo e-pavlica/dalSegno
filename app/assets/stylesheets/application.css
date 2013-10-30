@@ -44,8 +44,12 @@ footer {
 
 .profileImg {
   border-radius: 100%;
-  float:right;
+  /*float:right;*/
+  position: absolute;
   width: 25%;
+  z-index: 4;
+  right: 2%;
+  top: -20%;
 }
 
 #address {
@@ -80,4 +84,8 @@ body {
 #wysihtml5-textarea {
   width: 70%;
   height: 300px;
+}
+
+.gravInfo {
+  text-align: right;
 }
