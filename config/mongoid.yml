@@ -82,5 +82,6 @@ production:
       uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         skip_version_check: true
-        safe: true
-        # raise_not_found_error: false
+        #safe: true
+  options:
+    raise_not_found_error: false
