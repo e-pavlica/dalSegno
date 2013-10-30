@@ -62,9 +62,9 @@ DalSegno::Application.configure do
   # Add the fonts path
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
+  # config.assets.precompile += %w( .svg .eot .woff .ttf )
   # precomile angular
-  config.assets.precompile += %w( angular.min.js )
+  # config.assets.precompile += %w( angular.min.js )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
