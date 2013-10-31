@@ -21,6 +21,8 @@ DalSegno::Application.routes.draw do
 
   resources :users
 
+  resources :admins
+
   # resources :authentications
   get "authentications/new" => "authentications#new"
   get "authentications/newuser" => "authentications#newuser"

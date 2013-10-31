@@ -93,3 +93,24 @@ body {
 .pure-button.pure-button-small {
     font-size: 75%;
 }
+
+.dsSmall {
+  display: none;
+}
+
+@media(max-width: 650px){
+  .topLeftIcon, .topLeftIcon img, .topLeftIcon a{
+    display:none !important;
+  }
+  .dsSmall {
+    display: block;
+    float: left;
+    width:15%;
+    -webkit-filter: invert(90%);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

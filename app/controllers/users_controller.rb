@@ -34,6 +34,12 @@ class UsersController < ApplicationController
     redirect_to @user, notice: "Your profile was successfully updated."
   end
 
+  #method to delete a user
+  def destroy
+    @user = User.find(params[:id]).destroy
+    redirect_to admins_path
+  end
+
   private
 
   def user_params

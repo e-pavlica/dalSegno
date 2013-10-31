@@ -1,0 +1,24 @@
+.pure-g-r
+  .pure-u-2-5.card
+    =notice
+    .usersAdmin
+      %h3 Users
+      %table
+        %tr
+          %th Name
+          %th Admin
+          %th Delete
+        
+        - @users.each do |u|
+          %tr
+            %td
+              =u.name
+            %td
+              -if u.admin
+                -if u.admin.is_admin?
+                  %i{class:"icon-unlocked pure-button pure-button-admin pure-green"}
+              -else
+                =link_to "<i class='icon-locked'></i>".html_safe, admins_path(id:u.id), {method:"post", class:"pure-button pure-button-admin"}
+            %td
+              =link_to "<i class='icon-trash-b'></i>".html_safe, user_path(u.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}
+            

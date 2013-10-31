@@ -42,3 +42,18 @@ p {
   height: 35px;
   border-radius: 100%;
 }
+
+.topicSelector {
+  display: none;
+  list-style: inside none;
+}
+
+/*@media(max-width: 1000px){
+  .topicsBlocks {
+    display: none;
+  }
+  .topicSelector {
+    display: block;
+  }
+}*/
+

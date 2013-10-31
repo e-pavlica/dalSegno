@@ -7,6 +7,7 @@ class User
 
   has_many :messages
   has_many :replies
+  embeds_one :admin
 
   attr_accessor :password#, :password_confirmation
 

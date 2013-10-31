@@ -1,13 +1,14 @@
 .pure-g-r.messagesContainer{"ng-app" => true}
-  .pure-u-1-5
-    .pure-menu.pure-menu-open.topics
-      %a{href:"messages/new", class:"pure-button"} New Message
+  .pure-u-1-5.topics
+    .pure-menu.pure-menu-open.topicsBlocks
       %ul
+        %a{href:"messages/new", class:"pure-button"} New Message
         %li
           = link_to "All", messages_path
         - @topics.each do |t|
           %li
             = link_to t.topic_name, topic_path(t.id)
+    / .topicSelector
   .pure-u-4-5
     .pure-g-r.messageCards
       - @message.each do |m|
@@ -17,7 +18,7 @@
             posted by
             = u.name 
             = link_to (image_tag u.gravatar_url), user_path(u.id)
-          %h4= m.subject 
+          %h4= link_to m.subject, message_path(m.id)
           %br
           =m.message_body.html_safe
           %br
@@ -35,3 +36,18 @@
               = u.name 
               = link_to (image_tag u.gravatar_url), user_path(u.id)
             =r.reply_text
+
+// :javascript
+//   //create a dropdown for topics when screen is < 1000px
+//   $("<ul />").appendTo(".topicSelector");
+//   //add lines & anchors
+//   var i = 0
+//   $(".topicsBlocks a").each(function() {
+//     var el = $(this);
+//     $("<li />", { id: "li"+i}).appendTo(".topicSelector ul");
+//     $("<a />", {
+//       "href" : el.attr("href"),
+//       "text" : el.text()
+//       }).appendTo("#li"+i);
+//     ++i;
+//     });

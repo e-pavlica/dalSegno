@@ -1,7 +1,7 @@
 .pure-u-4-5
   =form_for @user, html:{class:"pure-form"} do |u|
     %fieldset{class:"pure-group"}
-      =u.text_field :email, {class: "pure-input-1", placeholder:"me@mydomian.com" }
+      =u.text_field :email, {class: "pure-input-1", placeholder:"me@mydomian.com", type: "email" }
       =u.text_field :password, {class: "pure-input-1", placeholder:"password", type: "password", required:true}
     %fieldset{class:"pure-group"}
       =u.text_field :name, {class:"pure-input-1", placeholder:"Your Name"}

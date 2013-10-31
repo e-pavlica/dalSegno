@@ -1,0 +1,17 @@
+.usersAdmin{
+  list-style: none;
+}
+.usersAdmin td :nth-child(2n+2){
+  background: #999;
+}
+
+.pure-button-admin{
+  padding: 3px !important;
+/*  right: 5%;
+  position: absolute;
+*/}
+
+.pure-button.pure-green {
+  background: #097600;
+}
+

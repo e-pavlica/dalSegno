@@ -2,6 +2,33 @@
 
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-r1YQPElxrGtWhUsfpi8lI18NUkMss1w&sensor=false"></script>
 
+
+
+
+
+.pure-g-r
+  .pure-u-1.card
+    = image_tag @user.gravatar_url, class: "profileImg"
+    %h2=@user.name
+
+    .pure-g-r
+      .pure-u-1
+        %h4 Contact Info
+      .pure-u-1-2
+        %i{class:"icon-at"}
+        =@user.email
+        %br
+        %i{class:"icon-ios7-telephone"}
+        =@user.phone
+        %br
+        =notice
+      .pure-u-1-2
+        %i{class:"icon-location"}
+        #address
+          =@user.address + ", " + @user.city + ", " + @user.state + " " + @user.zip
+        #map-canvas
+    =link_to "edit", edit_user_path , class: "pure-button pure-button-small editButton"
+
   :javascript
     var geocoder;
     var map;
@@ -33,31 +60,6 @@
 
 
     google.maps.event.addDomListener(window, 'page:change', initialize);
-
-
-
-.pure-g-r
-  .pure-u-1.card
-    = image_tag @user.gravatar_url, class: "profileImg"
-    %h2=@user.name
-
-    .pure-g-r
-      .pure-u-1
-        %h4 Contact Info
-      .pure-u-1-2
-        %i{class:"icon-at"}
-        =@user.email
-        %br
-        %i{class:"icon-ios7-telephone"}
-        =@user.phone
-        %br
-        =notice
-      .pure-u-1-2
-        %i{class:"icon-location"}
-        #address
-          =@user.address + ", " + @user.city + ", " + @user.state + " " + @user.zip
-        #map-canvas
-    =link_to "edit", edit_user_path , class: "pure-button pure-button-small editButton"
 
 
         

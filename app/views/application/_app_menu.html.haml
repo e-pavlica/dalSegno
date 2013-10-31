@@ -2,6 +2,7 @@
   =link_to (image_tag "Music-segno.png"), "/", class:"pure-menu-heading topLeftIcon"
   %ul
     %li{class:"pure-menu-heading"}
+      =image_tag "Music-segno.png", class:"dsSmall"
       logged in as 
       %br
       =current_user.name
@@ -11,5 +12,9 @@
       =link_to '<i class="icon-ios7-people"></i> Users'.html_safe, users_path
     %li
       =link_to '<i class="icon-person"></i> Profile'.html_safe, user_path(current_user)
+    -if current_user.admin
+      -if current_user.admin.is_admin?
+        %li
+          =link_to '<i class="icon-gear-a"></i> Administration'.html_safe, admins_path
     %li
-      =link_to '<i class="icon-close-circled"></i> Logout'.html_safe, logout_path
+      =link_to '<i class="icon-log-out"></i> Logout'.html_safe, logout_path

@@ -1,0 +1,7 @@
+.pure-g-r
+  .pure-u-1.card
+    %h2=@message.subject
+    %br
+    =@message.message_body.html_safe
+    %br
+    =link_to "delete", message_path(@message.id), {method:"delete", class:"pure-button"}
