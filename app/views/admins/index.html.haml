@@ -3,12 +3,7 @@
     =notice
     .usersAdmin
       %h3 Users
-      %table
-        %tr
-          %th Name
-          %th Admin
-          %th Delete
-        
+      %table{class: "pure-table-striped adminTable"}
         - @users.each do |u|
           %tr
             %td
@@ -16,9 +11,37 @@
             %td
               -if u.admin
                 -if u.admin.is_admin?
-                  %i{class:"icon-unlocked pure-button pure-button-admin pure-green"}
+                  =link_to "<i class='icon-unlocked'></i>".html_safe, admin_path(id:u.id), {method:"delete", class:"pure-button pure-button-admin pure-green"}
               -else
                 =link_to "<i class='icon-locked'></i>".html_safe, admins_path(id:u.id), {method:"post", class:"pure-button pure-button-admin"}
             %td
               =link_to "<i class='icon-trash-b'></i>".html_safe, user_path(u.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}
-            
+  .pure-u-2-5.card
+    .messagesAdmin
+      %h3 Messages
+      %table{class: "pure-table-striped adminTable"}
+        -@messages.each do |m|
+          %tr
+            %td
+              =link_to m.subject, message_path(m.id)
+            %td
+              =link_to "<i class='icon-ios7-compose'></i>".html_safe, edit_message_path(m.id), class:"pure-button pure-button-admin"
+            %td
+              =link_to "<i class='icon-trash-b'></i>".html_safe, message_path(m.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}
+
+  .pure-u-2-5.card
+    .topicsAdmin
+      %h3 Topics
+      =form_for @topic, html:{class:"pure-form"} do |tpic|
+        =tpic.text_field :topic_name, {class:"pure-input-2-3", placeholder: "new topic"}
+        =tpic.submit nil, {class: "pure-button pure-input-1-3"}
+      %table{class: "pure-table-striped adminTable"}
+        -@topics.each do |t|
+          %tr
+            %td
+              =t.topic_name
+            %td
+              /not working yet
+              edit 
+            %td
+              =link_to "<i class='icon-trash-b'></i>".html_safe, topic_path(t.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}

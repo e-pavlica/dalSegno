@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
+
   #basic CRUD functionality
   def index
     @topics = Topic.all
     @selected_topic = params[:topic]
 
-    #@message = Message.all
     if !@selected_topic
       @message = Message.all
     else
@@ -22,15 +22,32 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(params[:message].permit(:subject, :message_body, :topic))
+    @message = Message.new(message_params)
     @message.user = current_user
     @message.save
     redirect_to messages_path
   end
 
+  def edit
+    @message = Message.find(params[:id])
+  end
+
+  def update
+    @message = Message.find(params[:id])
+    @message.update_attributes(message_params)
+    redirect_to @message
+  end
+
+
   def destroy
     Message.find(params[:id]).destroy
     redirect_to messages_path
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:subject, :message_body, :topic)
   end
 
 end
