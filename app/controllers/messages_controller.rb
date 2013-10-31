@@ -24,6 +24,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
+    @message.time = Time.now
     @message.save
     redirect_to messages_path
   end
@@ -43,7 +44,7 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @message.replies.destroy
     @message.destroy
-    redirect_to messages_path
+    redirect_to admins_path
   end
 
   private

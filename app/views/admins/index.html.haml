@@ -27,14 +27,14 @@
             %td
               =link_to "<i class='icon-ios7-compose'></i>".html_safe, edit_message_path(m.id), class:"pure-button pure-button-admin"
             %td
-              =link_to "<i class='icon-trash-b'></i>".html_safe, message_path(m.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}
+              =link_to "<i class='icon-trash-b'></i>".html_safe, message_path(m.id),{method:"delete", class:"pure-button pure-button-admin"}
 
   .pure-u-2-5.card
     .topicsAdmin
       %h3 Topics
       =form_for @topic, html:{class:"pure-form"} do |tpic|
-        =tpic.text_field :topic_name, {class:"pure-input-2-3", placeholder: "new topic"}
-        =tpic.submit nil, {class: "pure-button pure-input-1-3"}
+        =tpic.text_field :topic_name, {placeholder: "new topic"}
+        =tpic.submit nil, {class: "pure-button"}
       %table{class: "pure-table-striped adminTable"}
         -@topics.each do |t|
           %tr

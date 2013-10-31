@@ -15,14 +15,19 @@
         - u = User.find(m.user)
         .message.card.pure-u-1
           .creator
-            posted by
-            = u.name 
+            .msgInfo
+              posted by
+              = u.name 
+              %br
+              =m.time.in_time_zone("America/Los_Angeles").to_s(:short)
             = link_to (image_tag u.gravatar_url), user_path(u.id)
           %h4= link_to m.subject, message_path(m.id)
           %br
           =m.message_body.html_safe
           %br
-          %button{:class => "pure-button replyBtn", value:"replyForm#{m.id}"}Reply
+          %br
+          %button{class:"pure-button replyBtn", value:".replyCard#{m.id}"} <i class="icon-chevron-down"></i> Show Replies
+          %button{class:"pure-button replyBtn", value:".replyForm#{m.id}"} <i class="icon-ios7-compose"></i> Reply
           %div{class:"replyForm replyForm#{m.id}"}
             %br
             = form_for( [m, Reply.new], html:{class:"pure-form"}) do |m|1
@@ -30,7 +35,7 @@
               = submit_tag "Post", class:"pure-button"
         -m.replies.each do |r|
           - u = User.find(r.user)
-          .reply.card.pure-u-2-3
+          %div{class:"reply card pure-u-2-3 replyCard#{m.id}"}
             .creator
               posted by
               = u.name 
@@ -53,8 +58,9 @@
 //     });
 
 :javascript
+  //jquery to show replies & the reply form
   $(".replyBtn").on('click', function(){
     rply = $(this).attr("value");
-    $("."+rply).show();
-    console.log($(this).attr("value"));
+    $(rply).show();
   });
+  

@@ -121,3 +121,7 @@ a {
 .replyForm {
   display: none;
 }
+
+.reply {
+  display: none;
+}

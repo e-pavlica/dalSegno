@@ -8,5 +8,6 @@ class Message
 
   field :subject, type: String
   field :message_body, type: String
+  field :time, type: DateTime
 
 end

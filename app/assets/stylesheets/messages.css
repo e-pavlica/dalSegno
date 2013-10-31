@@ -13,9 +13,9 @@
   margin-left: 10px;
 }
 
-.message h4 {
+/*.message h4 {
   margin-top: 0;
-}
+}*/
 
 .reply {
   margin:5px 0 5px 33%;
@@ -47,7 +47,9 @@ p {
   display: none;
   list-style: inside none;
 }
-
+.msgInfo{
+  display: inline-block;
+}
 /*@media(max-width: 1000px){
   .topicsBlocks {
     display: none;
