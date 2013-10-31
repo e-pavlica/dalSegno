@@ -25,6 +25,14 @@ class TopicsController < ApplicationController
     redirect_to admins_path
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+  end
 
+  def update
+    @topic = Topic.find(params[:id])
+    @topic.update_attributes(params[:topic].permit(:topic_name))
+    redirect_to admins_path
+  end
 
 end

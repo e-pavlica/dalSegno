@@ -41,7 +41,6 @@
             %td
               =t.topic_name
             %td
-              /not working yet
-              edit 
+              =link_to "<i class='icon-ios7-compose'></i>".html_safe, edit_topic_path(t.id),{class:"pure-button pure-button-admin"}
             %td
               =link_to "<i class='icon-trash-b'></i>".html_safe, topic_path(t.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}

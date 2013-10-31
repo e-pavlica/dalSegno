@@ -1,0 +1,5 @@
+.pure-g-r
+  .pure-u-1.card
+    =form_for @topic, html:{class:"pure-form"} do |tpic|
+      =tpic.text_field :topic_name, {class:"pure-input-2-3", placeholder: "new topic"}
+      =tpic.submit nil, {class: "pure-button pure-input-1-3"}
