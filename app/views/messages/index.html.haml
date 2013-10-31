@@ -22,8 +22,8 @@
           %br
           =m.message_body.html_safe
           %br
-          %button{:class => "pure-button", "ng-click" => "replyForm#{m.id}= true"}Reply
-          %div{"ng-show" => "replyForm#{m.id}"}
+          %button{:class => "pure-button replyBtn", value:"replyForm#{m.id}"}Reply
+          %div{class:"replyForm replyForm#{m.id}"}
             %br
             = form_for( [m, Reply.new], html:{class:"pure-form"}) do |m|1
               = m.text_area :reply_text
@@ -51,3 +51,10 @@
 //       }).appendTo("#li"+i);
 //     ++i;
 //     });
+
+:javascript
+  $(".replyBtn").on('click', function(){
+    rply = $(this).attr("value");
+    $("."+rply).show();
+    console.log($(this).attr("value"));
+  });

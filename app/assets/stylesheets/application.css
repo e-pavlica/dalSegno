@@ -103,14 +103,21 @@ body {
     display:none !important;
   }
   .dsSmall {
-    display: block;
-    float: left;
+    display: inline-block;
     width:15%;
     -webkit-filter: invert(90%);
+  }
+  .profileImg {
+    position: relative;
+    margin: 0 auto;
   }
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.replyForm {
+  display: none;
 }

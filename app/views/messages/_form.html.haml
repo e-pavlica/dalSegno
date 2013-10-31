@@ -4,6 +4,11 @@
     %a{:data => {"wysihtml5-command" => "bold"}, class: "pure-button pure-button-small"} <i class="fa fa-bold"></i>
     %a{:data => {"wysihtml5-command" => "italic"}, class: "pure-button pure-button-small"} <i class="fa fa-italic"></i>
     %a{:data => {"wysihtml5-command" => "underline"}, class: "pure-button pure-button-small"} <i class="fa fa-underline"></i>
+    %a{:data => {"wysihtml5-command" => "createLink"}, class: "pure-button pure-button-small"} <i class="icon-link"></i>
+    %div{:data => {"wysihtml5-dialog"=>"createLink"}}
+      %label Link:
+      %input{:data => {"wysihtml5-dialog-field" => "href"}, value:"http://"}
+      
     %a{:data => {"wysihtml5-command" => "insertOrderedList"}, class: "pure-button pure-button-small"} <i class="fa fa-list-ol"></i>
     %a{:data => {"wysihtml5-command" => "insertUnorderedList"}, class: "pure-button  pure-button-small"} <i class="fa fa-list-ul"></i>
     %a{:data => {"wysihtml5-command" => "foreColor", "wysihtml5-command-value"=>"red"}, class: "pure-button  pure-button-small"} Red
