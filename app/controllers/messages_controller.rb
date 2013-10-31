@@ -40,7 +40,9 @@ class MessagesController < ApplicationController
 
 
   def destroy
-    Message.find(params[:id]).destroy
+    @message = Message.find(params[:id])
+    @message.replies.destroy
+    @message.destroy
     redirect_to messages_path
   end
 
