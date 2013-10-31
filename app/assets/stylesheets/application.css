@@ -98,7 +98,7 @@ body {
   display: none;
 }
 
-@media(max-width: 650px){
+@media(max-width: 768px){
   .topLeftIcon, .topLeftIcon img, .topLeftIcon a{
     display:none !important;
   }
@@ -110,6 +110,8 @@ body {
   .profileImg {
     position: relative;
     margin: 0 auto;
+    display: block;
+    width:50%;
   }
 }
 
