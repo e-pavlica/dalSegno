@@ -68,3 +68,6 @@ p {
   box-shadow: 0 0 5px 5px #eee;
   padding: 10px;
 }
+.topicsBlocks {
+  overflow: hidden;
+}

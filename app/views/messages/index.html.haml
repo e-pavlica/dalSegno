@@ -26,7 +26,8 @@
           =m.message_body.html_safe
           %br
           %br
-          %button{class:"pure-button replyBtn", value:".replyCard#{m.id}"} <i class="icon-chevron-down"></i> Show Replies
+          - unless m.replies.empty?
+            %button{class:"pure-button replyBtn", value:".replyCard#{m.id}"} <i class="icon-chevron-down"></i> Show Replies
           %button{class:"pure-button replyBtn", value:".replyForm#{m.id}"} <i class="icon-ios7-compose"></i> Reply
           %div{class:"replyForm replyForm#{m.id}"}
             %br
@@ -37,8 +38,11 @@
           - u = User.find(r.user)
           %div{class:"reply card pure-u-2-3 replyCard#{m.id}"}
             .creator
-              posted by
-              = u.name 
+              .msgInfo
+                posted by
+                = u.name 
+                %br
+                = r.time.in_time_zone("America/Los_Angeles").to_s(:short)
               = link_to (image_tag u.gravatar_url), user_path(u.id)
             =r.reply_text
 
