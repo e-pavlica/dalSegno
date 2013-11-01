@@ -1,7 +1,8 @@
 .pure-g-r
   - @users.each do |u|
-    .pure-u-2-5.card
-      = link_to (image_tag u.gravatar_url, class: "profileImg"), user_path(u.id)
-      %h3= u.name
-      =u.phone
+    -unless u.name == "admin"
+      .pure-u-2-5.card
+        = link_to (image_tag u.gravatar_url, class: "profileImg"), user_path(u.id)
+        %h3=link_to u.name, user_path(u.id)
+        =u.phone
       

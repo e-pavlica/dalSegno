@@ -127,3 +127,16 @@ a {
 .reply {
   display: none;
 }
+
+.notices {
+  width: 50%;
+  background: rgba(255,255,255,1);
+  border-radius: 20%;
+  box-shadow: 0 0 5px 5px white;
+  text-align: center;
+  margin: 30px auto 0;
+  position: relative;
+  height: 50px;
+  vertical-align: center;
+  /*display: none;*/
+}

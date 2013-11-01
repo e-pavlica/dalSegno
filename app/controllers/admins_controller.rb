@@ -20,8 +20,12 @@ class AdminsController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.admin.destroy
-    redirect_to admins_path, notice: @user.name + " is no longer an admin."
+    unless @user.name == "admin"
+      @user.admin.destroy
+      redirect_to admins_path, notice: @user.name + " is no longer an admin."
+    else
+      redirect_to admins_path, notice: "You cannot revoke privileges from the admin account."
+    end
   end
 
   def require_admin

@@ -21,7 +21,6 @@
         %i{class:"icon-ios7-telephone"}
         =@user.phone
         %br
-        =notice
       .pure-u-1-2
         %i{class:"icon-location"}
         #address
@@ -58,7 +57,7 @@
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     }
    
-    $(document).on('page:change', initialize);
+    $(document).on('page:load || page:change', initialize());
 
 
         

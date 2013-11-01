@@ -1,14 +1,18 @@
 =form_for [@message], html: {class:"pure-form pure-form-stacked"} do |message|
+  = message.label :subject, "Subject:"
   = message.text_field :subject, placeholder:"Subject"
+  = message.label :topic, "Topic:"
+  = message.select(:topic, Topic.all.collect{|t| [t.topic_name, t.id]}) 
   #wysihtml5-toolbar
     %a{:data => {"wysihtml5-command" => "bold"}, class: "pure-button pure-button-small"} <i class="fa fa-bold"></i>
     %a{:data => {"wysihtml5-command" => "italic"}, class: "pure-button pure-button-small"} <i class="fa fa-italic"></i>
     %a{:data => {"wysihtml5-command" => "underline"}, class: "pure-button pure-button-small"} <i class="fa fa-underline"></i>
-    %a{:data => {"wysihtml5-command" => "createLink"}, class: "pure-button pure-button-small"} <i class="icon-link"></i>
-    %div{:data => {"wysihtml5-dialog"=>"createLink"}}
+    %a{:data => {"wysihtml5-command" => "createLink"}, class: "pure-button pure-button-small linkBtn"} <i class="icon-link"></i>
+    %div{:data => {"wysihtml5-dialog"=>"createLink"}, class: "wysiLink"}
       %label Link:
       %input{:data => {"wysihtml5-dialog-field" => "href"}, value:"http://"}
-      
+      %a{:data => {"wysihtml5-dialog-action" => "save"}, class: "pure-button pure-button-small"} ok
+      %a{:data => {"wysihtml5-dialog-action" => "cancel"}, class: "pure-button pure-button-small"} cancel
     %a{:data => {"wysihtml5-command" => "insertOrderedList"}, class: "pure-button pure-button-small"} <i class="fa fa-list-ol"></i>
     %a{:data => {"wysihtml5-command" => "insertUnorderedList"}, class: "pure-button  pure-button-small"} <i class="fa fa-list-ul"></i>
     %a{:data => {"wysihtml5-command" => "foreColor", "wysihtml5-command-value"=>"red"}, class: "pure-button  pure-button-small"} Red
@@ -16,7 +20,6 @@
     %a{:data => {"wysihtml5-command" => "foreColor", "wysihtml5-command-value"=>"blue"}, class: "pure-button pure-button-small"} Blue
   = message.text_area :message_body, {placeholder:"Message", id:"wysihtml5-textarea"} 
 
-  = message.select(:topic, Topic.all.collect{|t| [t.topic_name, t.id]}) 
   = submit_tag "Post", class:"pure-button"
 
 :javascript
@@ -25,3 +28,12 @@
   parserRules: wysihtml5ParserRules, // defined in parser rules set 
   stylesheets: "#{asset_path "wysihtml5-stylesheet.css"}"
   });
+  $(document).on("page:load", function(){
+    $(".wysiLink").hide();
+  })
+  $(".linkBtn").on('click', function(){
+    $(".wysiLink").show();
+  });
+  editor.composer.commands.exec("createLink", { href: "http://google.com", target: "_blank", rel: "nofollow", text: "Google" });
+  
+
