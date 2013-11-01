@@ -52,6 +52,11 @@ footer {
   top: -20%;
 }
 
+.profileImg.edit {
+  position:static;
+  width:90%;
+}
+
 #address {
   display: inline;
 }
@@ -104,8 +109,14 @@ body {
   }
   .dsSmall {
     display: inline-block;
-    width:15%;
+    vertical-align: middle;
+  }
+
+  .dsSmall img{
     -webkit-filter: invert(90%);
+    width:5em;
+    vertical-align: middle;
+    
   }
   .profileImg {
     position: relative;
@@ -137,6 +148,11 @@ a {
   margin: 30px auto 0;
   position: relative;
   height: 50px;
-  vertical-align: center;
+  vertical-align: middle;
   /*display: none;*/
+}
+
+.socialNets a {
+  /*border-top: 1px solid black;*/
+  font-size: 35px;
 }

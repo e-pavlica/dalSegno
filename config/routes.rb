@@ -20,7 +20,7 @@ DalSegno::Application.routes.draw do
   resources :topics
 
   resources :users
-
+  resources :socialnets
   resources :admins
 
   # resources :authentications

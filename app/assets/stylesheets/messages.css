@@ -71,3 +71,9 @@ p {
 .topicsBlocks {
   overflow: hidden;
 }
+
+@media (max-width: 768px){
+  #wysihtml5-toolbar{
+    display: none;
+  }
+}

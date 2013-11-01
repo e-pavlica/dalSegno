@@ -25,6 +25,12 @@ class UsersController < ApplicationController
 
   #methods for editing a user's profile
   def edit
+    if @user.socialnet
+      @socialnet = @user.socialnet
+    else
+      @socialnet = Socialnet.new
+    end
+
     if @user != current_user
       redirect_to @user, notice: "you can only edit your own profile."
     end

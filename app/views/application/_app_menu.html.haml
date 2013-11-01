@@ -2,10 +2,12 @@
   =link_to (image_tag "Music-segno.png"), "/", class:"pure-menu-heading topLeftIcon"
   %ul
     %li{class:"pure-menu-heading"}
-      =image_tag "Music-segno.png", class:"dsSmall"
-      logged in as 
-      %br
-      =current_user.name
+      .dsSmall.pure-u-1-8
+        =image_tag "Music-segno.png", class:"dsSmall"
+      .pure-u-7-8
+        logged in as 
+        %br
+        =current_user.name
     %li
       =link_to '<i class="icon-email"></i> Messages'.html_safe, messages_path
     %li

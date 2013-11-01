@@ -18,3 +18,9 @@
 .adminTable {
   width: 100%;
 }
+
+.inactiveDs {
+  opacity: 0.6;
+  margin: auto;
+  display: block;
+}

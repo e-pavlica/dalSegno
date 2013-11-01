@@ -1,0 +1,20 @@
+.pure-u-2-3
+  %h3 Add more info to your profile
+  =form_for @socialnet, html:{class:"pure-form"} do |s|
+    %fieldset
+      %div{class:"pure-control-group"}
+        =s.label :twitter, "<i class='icon-social-twitter'></i>".html_safe
+        =s.text_field :twitter, {placeholder:"twitter handle"}
+      %div{class:"pure-control-group"}
+        =s.label :facebook, "<i class='icon-social-facebook'></i>".html_safe
+        =s.text_field :facebook, {placeholder:"facebook profile url"}
+      %div{class:"pure-control-group"}
+        =s.label :gplus, "<i class='icon-social-googleplus'></i>".html_safe
+        =s.text_field :gplus, {placeholder:"google plus profile url"}
+      %div{class:"pure-control-group"}
+        =s.label :github, "<i class='icon-social-github'></i>".html_safe
+        =s.text_field :github, {placeholder:"github user name"}
+      %div{class:"pure-control-group"}
+        =s.label :linkedin, "<i class='icon-social-linkedin'></i>".html_safe
+        =s.text_field :linkedin, {placeholder:"linkedin profile url"}
+    =s.submit "Save",{class:"pure-button"}

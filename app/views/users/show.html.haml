@@ -1,11 +1,3 @@
--content_for :head do
-
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-r1YQPElxrGtWhUsfpi8lI18NUkMss1w&sensor=false"></script>
-
-
-
-
-
 .pure-g-r
   .pure-u-1.card
     = image_tag @user.gravatar_url, class: "profileImg"
@@ -16,17 +8,34 @@
         %h4 Contact Info
       .pure-u-1-2
         %i{class:"icon-at"}
-        =@user.email
+        %a{href:"mailto:#{@user.email}"}=@user.email
         %br
         %i{class:"icon-ios7-telephone"}
         =@user.phone
         %br
+        -if @user.socialnet
+          .socialNets
+            %h4 Social Networks
+            -if @user.socialnet.twitter
+              %a{class:"icon-social-twitter", href:"http://twitter.com/#{@user.socialnet.twitter}"}
+            -if @user.socialnet.facebook
+              %a{class:"icon-social-facebook", href:"https://#{@user.socialnet.facebook}"}
+            -if @user.socialnet.gplus
+              %a{class:"icon-social-googleplus", href:"https://#{@user.socialnet.gplus}"}
+            -if @user.socialnet.github
+              %a{class:"icon-social-github", href:"https://github.com/#{@user.socialnet.github}"}
+            -if @user.socialnet.linkedin
+              %a{class:"icon-social-linkedin", href:"#{@user.socialnet.linkedin}"}
       .pure-u-1-2
         %i{class:"icon-location"}
         #address
-          =@user.address + ", " + @user.city + ", " + @user.state + " " + @user.zip
+          =@user.address 
+          %br
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          =@user.city + ", " + @user.state + " " + @user.zip
         #map-canvas
     =link_to "edit", edit_user_path , class: "pure-button pure-button-small editButton"
+
 
   :javascript
     var geocoder;
@@ -35,7 +44,8 @@
       geocoder = new google.maps.Geocoder();
       //var latlng = new google.maps.LatLng(-34.397, 150.644);
       var latlon;
-      var address = document.getElementById('address').innerHTML;
+      // var address = document.getElementById('address').innerHTML;
+      var address = "#{@user.address+' '+@user.city+', '+@user.state}"
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           latlon = results[0].geometry.location;

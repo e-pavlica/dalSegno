@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular.min
 //= require advanced.js
 //= require wysihtml5-0.3.0.min
 //= require turbolinks

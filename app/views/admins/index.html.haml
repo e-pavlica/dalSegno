@@ -29,6 +29,7 @@
               =link_to "<i class='icon-trash-b'></i>".html_safe, message_path(m.id),{method:"delete", class:"pure-button pure-button-admin"}
 
   .pure-u-2-5.card
+    /a card to add & remove topics
     .topicsAdmin
       %h3 Topics
       =form_for @topic, html:{class:"pure-form"} do |tpic|
@@ -43,3 +44,6 @@
               =link_to "<i class='icon-ios7-compose'></i>".html_safe, edit_topic_path(t.id),{class:"pure-button pure-button-admin"}
             %td
               =link_to "<i class='icon-trash-b'></i>".html_safe, topic_path(t.id),{method:"delete", class:"pure-button pure-button-admin", data: {confirm:"Are you sure?"}}
+  .pure-u-2-5.card
+    / nothing to do here for the moment
+    =image_tag "Music-segno.png", class:"inactiveDs"
