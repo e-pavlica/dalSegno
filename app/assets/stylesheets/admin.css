@@ -22,3 +22,7 @@
   margin: auto;
   display: block;
 }
+
+.inactiveDs.sized {
+  width: 30%;
+}

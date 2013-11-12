@@ -65,6 +65,11 @@
   //jquery to show replies & the reply form
   $(".replyBtn").on('click', function(){
     rply = $(this).attr("value");
-    $(rply).show();
+    if ($(rply).is(":hidden")){
+      $(rply).slideDown();
+    }
+    else{
+      $(rply).slideUp();
+    }
   });
   

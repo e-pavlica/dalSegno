@@ -5,4 +5,21 @@
         = link_to (image_tag u.gravatar_url, class: "profileImg"), user_path(u.id)
         %h3=link_to u.name, user_path(u.id)
         =u.phone
-      
+        -if u.socialnet
+          .socialNets
+            / %h4 Social Networks
+            -unless u.socialnet.twitter.empty?
+              %a{class:"icon-social-twitter", href:"http://twitter.com/#{u.socialnet.twitter}"}
+            -unless u.socialnet.facebook.empty?
+              %a{class:"icon-social-facebook", href:"https://#{u.socialnet.facebook}"}
+            -unless u.socialnet.gplus.empty?
+              %a{class:"icon-social-googleplus", href:"https://#{u.socialnet.gplus}"}
+            -unless u.socialnet.github.empty?
+              %a{class:"icon-social-github", href:"https://github.com/#{u.socialnet.github}"}
+            -unless u.socialnet.linkedin.empty?
+              %a{class:"icon-social-linkedin", href:"#{u.socialnet.linkedin}"}
+          %br
+  -if (@users.length - 1) % 2 !=0
+    .pure-u-2-5.card
+      / placeholder card to keep things lined up
+      =image_tag "Music-segno.png", class:"inactiveDs sized"

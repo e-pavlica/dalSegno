@@ -12,20 +12,7 @@
         %i{class:"icon-ios7-telephone"}
         =@user.phone
         %br
-        -if @user.socialnet
-          .socialNets
-            %h4 Social Networks
-            -unless @user.socialnet.twitter.empty?
-              %a{class:"icon-social-twitter", href:"http://twitter.com/#{@user.socialnet.twitter}"}
-            -unless @user.socialnet.facebook.empty?
-              %a{class:"icon-social-facebook", href:"https://#{@user.socialnet.facebook}"}
-            -unless @user.socialnet.gplus.empty?
-              %a{class:"icon-social-googleplus", href:"https://#{@user.socialnet.gplus}"}
-            -unless @user.socialnet.github.empty?
-              %a{class:"icon-social-github", href:"https://github.com/#{@user.socialnet.github}"}
-            -unless @user.socialnet.linkedin.empty?
-              %a{class:"icon-social-linkedin", href:"#{@user.socialnet.linkedin}"}
-          %br
+        =render "social_display"
       .pure-u-1-2
         %i{class:"icon-location"}
         #address
